@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="resident"
+                type="com.example.starwars.api.Resident"/>
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="72dp">
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:context=".ui.dashboard.residents.detail.ResidentDetailFragment"
+                    android:paddingBottom="8dp">
+
+                <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        tools:src="@tools:sample/avatars"
+                        android:id="@+id/imageUrl"
+                        app:imageUrl="@{resident.imageUrl}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toStartOf="@+id/name"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/image"/>
+
+                <TextView
+                        android:text="@{`Name: ` + resident.name}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name"
+                        app:layout_constraintStart_toEndOf="@+id/imageUrl"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageUrl"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="16dp"/>
+
+                <TextView
+                        android:text="@{`Height: ` + resident.height}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/height"
+                        app:layout_constraintTop_toBottomOf="@id/barrier"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+                <TextView
+                        android:text="@{`Mass: ` + resident.mass}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mass"
+                        app:layout_constraintTop_toBottomOf="@+id/height"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+                <TextView
+                        android:text="@{`Hair color: ` + resident.hairColor}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hairColor"
+                        app:layout_constraintTop_toBottomOf="@+id/mass"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+                <TextView
+                        android:text="@{`Skin color: ` + resident.skinColor}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/skinColor"
+                        app:layout_constraintTop_toBottomOf="@+id/hairColor"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"/>
+
+                <TextView
+                        android:text="@{`Eye color: ` + resident.eyeColor}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/eyeColor"
+                        app:layout_constraintTop_toBottomOf="@+id/skinColor"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"/>
+
+                <TextView
+                        android:text="@{`Birth year: ` + resident.birthYear}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/birthYear"
+                        app:layout_constraintTop_toBottomOf="@id/eyeColor"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"/>
+
+                <TextView
+                        android:text="@{`Gender: ` + resident.gender}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gender"
+                        app:layout_constraintTop_toBottomOf="@+id/birthYear"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="16dp"/>
+
+                <TextView
+                        android:text="@{`Home world: ` + resident.homeWorld}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/homeWorld"
+                        app:layout_constraintTop_toBottomOf="@+id/gender"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+                <TextView
+                        android:text="@{`Created: ` + resident.created}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/created"
+                        app:layout_constraintTop_toBottomOf="@+id/homeWorld"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"/>
+
+                <TextView
+                        android:text="@{`Edited: ` + resident.edited}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edited"
+                        app:layout_constraintTop_toBottomOf="@+id/created"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/barrier"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="imageUrl,name"
+                        tools:layout_editor_absoluteY="262dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </ScrollView>
+</layout>

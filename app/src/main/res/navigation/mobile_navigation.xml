@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:tools="http://schemas.android.com/tools"
+			android:id="@+id/mobile_navigation"
+			app:startDestination="@id/navigation_dashboard">
+
+	<fragment
+		android:id="@+id/navigation_dashboard"
+		android:name="com.example.starwars.ui.dashboard.kamino.DashboardFragment"
+		android:label="@string/title_dashboard"
+		tools:layout="@layout/fragment_dashboard" >
+		<action
+				android:id="@+id/move_to_planet_image"
+				app:destination="@id/planet_image"/>
+		<action
+				android:id="@+id/move_to_residents"
+				app:destination="@id/residents">
+			<argument
+					android:name="residents"
+					app:argType="string[]"/>
+		</action>
+	</fragment>
+
+	<fragment
+			android:id="@+id/planet_image"
+			android:name="com.example.starwars.ui.dashboard.image.PlanetImageFragment"
+			tools:layout="@layout/fragment_planet_image"
+			android:label="Planet Image">
+		<argument
+				android:name="imageUrl"
+				app:argType="string"/>
+	</fragment>
+	<navigation
+			android:id="@+id/residents"
+			app:startDestination="@id/resident_dest">
+		<fragment
+				android:id="@+id/resident_dest"
+				android:name="com.example.starwars.ui.dashboard.residents.list.ResidentFragment"
+				android:label="Residents"
+				tools:layout="@layout/fragment_resident_list">
+			<argument
+					android:name="residents"
+					app:argType="string[]"/>
+			<action
+					android:id="@+id/move_to_resident_detail"
+					app:destination="@id/resident_detail_dest"/>
+		</fragment>
+		<fragment
+				android:id="@+id/resident_detail_dest"
+				android:name="com.example.starwars.ui.dashboard.residents.detail.ResidentDetailFragment"
+				android:label="Resident Detail"
+				tools:layout="@layout/fragment_resident_detail">
+			<argument
+					android:name="residentId"
+					app:argType="string"/>
+		</fragment>
+	</navigation>
+</navigation>
